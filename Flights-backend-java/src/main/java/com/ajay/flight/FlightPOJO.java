@@ -9,7 +9,7 @@ import org.apache.tomcat.jni.Time;
 
 @XmlRootElement
 public class FlightPOJO {
-    public FlightPOJO(long flightNumber, String carrierr, String origin, String depature, String destination,
+    public FlightPOJO(String flightNumber, String carrierr, String origin, String depature, String destination,
 			String arrival, String aircraft, String distance, String travelTime, String status) {
 		super();
 		this.flightNumber = flightNumber;
@@ -29,10 +29,10 @@ public class FlightPOJO {
 				+ ", depature=" + depature + ", destination=" + destination + ", arrival=" + arrival + ", aircraft="
 				+ aircraft + ", distance=" + distance + ", travelTime=" + travelTime + ", Status=" + Status + "]";
 	}
-	public long getFlightNumber() {
+	public String getFlightNumber() {
 		return flightNumber;
 	}
-	public void setFlightNumber(long flightNumber) {
+	public void setFlightNumber(String flightNumber) {
 		this.flightNumber = flightNumber;
 	}
 	public String getCarrierr() {
@@ -89,7 +89,7 @@ public class FlightPOJO {
 	public void setStatus(String status) {
 		Status = status;
 	}
-	private	long flightNumber ;
+	private	String flightNumber ;
 	private	String carrierr ;
 	private	String origin;
 	private String depature;

@@ -1,5 +1,5 @@
 package com.ajay.flight;
-
+import  java.util.stream.Collectors;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -27,7 +27,7 @@ public class Flights {
 	public FlightRepo repo()
 	{
 		FlightRepo repo=new FlightRepo();
-		repo.add(new FlightPOJO(  2005,
+		repo.add(new FlightPOJO(  "2005",
 			    "UA",
 			  "IAH",
 			   "2018-01-31T05:10:00",
@@ -37,7 +37,37 @@ public class Flights {
 			   " 925",
 			    "02:47",
 			     "Arrived at Gate"));
-		repo.add(new FlightPOJO(  2005,
+		repo.add(new FlightPOJO("0638",
+			    "UA",
+			  "IAH",
+			   "2018-01-31T07:45:00",
+			     "ORD",
+			    "2018-01-31T07:57:00",
+			    "Airbus A320",
+			   " 925",
+			    "02:47",
+			     "Arrived at Gate"));
+		repo.add(new FlightPOJO( "1160",
+			    "UA",
+			  "IAH",
+			   "2018-01-31T05:10:00",
+			     "ORD",
+			    "2018-01-31T07:57:00",
+			    "Boeing 737-800",
+			   " 925",
+			    "02:33",
+			     "Arrived at Gate"));
+		repo.add(new FlightPOJO(  "1256",
+			    "UA",
+			  "IAH",
+			   "2018-01-31T14:22:00",
+			     "ORD",
+			    "2018-01-31T17:01:00",
+			    "Boeing 737-800",
+			   " 925",
+			    "02:41",
+			     "On Time"));
+		repo.add(new FlightPOJO(  "2153",
 			    "UA",
 			  "IAH",
 			   "2018-01-31T05:10:00",
@@ -47,7 +77,7 @@ public class Flights {
 			   " 925",
 			    "02:47",
 			     "Arrived at Gate"));
-		repo.add(new FlightPOJO(  2005,
+		repo.add(new FlightPOJO(  "2155",
 			    "UA",
 			  "IAH",
 			   "2018-01-31T05:10:00",
@@ -57,57 +87,27 @@ public class Flights {
 			   " 925",
 			    "02:47",
 			     "Arrived at Gate"));
-		repo.add(new FlightPOJO(  2005,
+		repo.add(new FlightPOJO( "2131",
 			    "UA",
 			  "IAH",
 			   "2018-01-31T05:10:00",
 			     "ORD",
 			    "2018-01-31T07:57:00",
-			    "Airbus A320",
+			    "Boeing 737-900",
 			   " 925",
 			    "02:47",
 			     "Arrived at Gate"));
-		repo.add(new FlightPOJO(  2005,
+		repo.add(new FlightPOJO( "2043",
 			    "UA",
 			  "IAH",
 			   "2018-01-31T05:10:00",
 			     "ORD",
 			    "2018-01-31T07:57:00",
-			    "Airbus A320",
+			    "Boeing 737-800",
 			   " 925",
 			    "02:47",
 			     "Arrived at Gate"));
-		repo.add(new FlightPOJO(  2005,
-			    "UA",
-			  "IAH",
-			   "2018-01-31T05:10:00",
-			     "ORD",
-			    "2018-01-31T07:57:00",
-			    "Airbus A320",
-			   " 925",
-			    "02:47",
-			     "Arrived at Gate"));
-		repo.add(new FlightPOJO(  2005,
-			    "UA",
-			  "IAH",
-			   "2018-01-31T05:10:00",
-			     "ORD",
-			    "2018-01-31T07:57:00",
-			    "Airbus A320",
-			   " 925",
-			    "02:47",
-			     "Arrived at Gate"));
-		repo.add(new FlightPOJO(  2005,
-			    "UA",
-			  "IAH",
-			   "2018-01-31T05:10:00",
-			     "ORD",
-			    "2018-01-31T07:57:00",
-			    "Airbus A320",
-			   " 925",
-			    "02:47",
-			     "Arrived at Gate"));
-		repo.add(new FlightPOJO(  2005,
+		repo.add(new FlightPOJO(  "0748",
 			    "UA",
 			  "ORD",
 			   "2018-01-31T05:10:00",
@@ -117,7 +117,7 @@ public class Flights {
 			   " 925",
 			    "02:47",
 			     "Arrived at Gate"));
-		repo.add(new FlightPOJO(  2171,
+		repo.add(new FlightPOJO(  "2166",
 			    "UA",
 			  "ORD",
 			   "2018-01-31T05:10:00",
@@ -125,13 +125,23 @@ public class Flights {
 			    "2018-01-31T07:57:00",
 			    "Airbus A320",
 			   " 925",
-			    "02:47",
+			    "02:34",
 			     "Arrived at Gate"));
-		repo.add(new FlightPOJO(  1128,
+		repo.add(new FlightPOJO( "2177",
 			    "UA",
 			  "ORD",
 			   "2018-01-31T05:10:00",
-			     "ORD",
+			     "IAH",
+			    "2018-01-31T07:57:00",
+			    "Airbus A320",
+			   " 925",
+			    "02:41",
+			     "On Time"));
+		repo.add(new FlightPOJO( "1128",
+			    "UA",
+			  "ORD",
+			   "2018-01-31T05:10:00",
+			     "IAH",
 			    "2018-01-31T07:57:00",
 			    "Boeing 737-800",
 			   " 925",
@@ -153,11 +163,17 @@ public class Flights {
 		public List<FlightPOJO> showall(){
 		return flights;}
 		
+		public List<FlightPOJO> findByOD(String flightNO,String date,String origin,String destination ){
+			return flights.stream()
+					.filter(f->f.getFlightNumber().equals(flightNO) || ( f.getDestination().equals(destination) && f.getOrigin().equals(origin)) )
+					.collect(Collectors.toList())
+					;}
 		
-		public Optional<FlightPOJO> findByFlightNo(long flightNO)
+		
+		public Optional<FlightPOJO> findByFlightNo(String flightNO,String date)
 	
 		{
-			return this.flights.stream().filter(f->f.getFlightNumber()==flightNO).findFirst();
+			return this.flights.stream().filter(f->f.getFlightNumber().equals(flightNO)).findFirst();
 		}
 	
 }
@@ -166,7 +182,7 @@ public class Flights {
 	// Controller class 
 	@RestController
 	@RequestMapping(value="/")
-	@CrossOrigin
+	@CrossOrigin // needed as ui runs on different server
 	public static class FlightController
 	
 	{
@@ -179,12 +195,15 @@ public class Flights {
 		
          @GetMapping("/flight")
          
-         public Optional<FlightPOJO> findByNo(@RequestParam long no)
+         public Optional<FlightPOJO> findByNo(@RequestParam String no, @RequestParam(required=false) String date)
          {
-        	 return repo.findByFlightNo(no);
+        	 return repo.findByFlightNo(no,date);
          }
 		
+	@GetMapping("/flightOD")
 		
+		public List<FlightPOJO> flightsOD(@RequestParam(required=false) String no, @RequestParam(required=false) String date, @RequestParam(required=false) String origin, @RequestParam(required=false) String destination)
+	{return repo.findByOD(no, date, origin, destination);}
 		
 		
 	}
