@@ -1,0 +1,123 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ headline }}!
+  </h1>
+<div>
+  <!--
+  <button (click)="toggleform()" id="bt">
+      {{buttonName1}}
+  </button>  -->
+</div>
+  <ng-container *ngIf="number">
+<div>
+    <form #f = "ngForm" (ngSubmit) = "onSubmit(f.value)" >
+        <input type = "text" name = "flightno" placeholder = "Flight No" ngModel>  
+        <br/>
+        <input type = "text" name = "date" placeholder = "Date(Optional)" ngModel>
+        <br/>
+        <br/>
+        <input type = "submit" value = "Search" >
+     </form>
+
+     <tr>
+        <th>FlightNumber</th>
+        <th>Carrier</th>
+        <th>origin</th>
+        <th>depature</th>
+        <th>destination</th>
+        <th>arrival</th>
+        <th>aircraft</th>
+        <th>distance</th>
+        <th>Travel Time</th>
+      </tr>
+      <tr >
+    <td>{{data1?.flightNumber}}</td>
+    <td>{{data1?.carrierr}}</td>
+    <td>{{data1?.origin}}</td>
+    <td>{{data1?.depature}}</td>
+    <td>{{data1?.destination}}</td>
+    <td>{{data1?.arrival}}</td>
+    <td>{{data1?.aircraft}}</td>
+    <td>{{data1?.distance}}</td>
+    <td>{{data1?.travelTime}}</td>
+    
+      </tr>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="origin">
+      <div>
+          <form #f = "ngForm" (ngSubmit) = "onSubmit(f.value)" >
+              <input type = "text" name = "origin" placeholder = "Flight Origin" ngModel>  
+              <br/>
+              <input type = "text" name = "destination" placeholder = "flight destination" ngModel>
+              <br/>
+              <br/>
+              <input type = "submit" value = "Search" >
+           </form>
+      
+         
+          </div>
+
+          <tr>
+              <th>FlightNumber</th>
+              <th>Carrier</th>
+              <th>origin</th>
+              <th>depature</th>
+              <th>destination</th>
+              <th>arrival</th>
+              <th>aircraft</th>
+              <th>distance</th>
+              <th>Travel Time</th>
+            </tr>
+            <tr *ngFor="let flight of data" >
+          <td>{{flight.flightNumber}}</td>
+          <td>{{flight.carrierr}}</td>
+          <td>{{flight.origin}}</td>
+          <td>{{flight.depature}}</td>
+          <td>{{flight.destination}}</td>
+          <td>{{flight.arrival}}</td>
+          <td>{{flight.aircraft}}</td>
+          <td>{{flight.distance}}</td>
+          <td>{{flight.travelTime}}</td>
+        </ng-container>
+
+<h2>All Available Flights</h2>
+
+  <button (click)="toggle()" class=button>
+      {{buttonName}}
+  </button>
+</div>
+<ng-container *ngIf="show">
+    <div style="margin: 0 auto;text-align: left;">
+        <tr>
+            <th>FlightNumber</th>
+            <th>Carrier</th>
+            <th>origin</th>
+            <th>depature</th>
+            <th>destination</th>
+            <th>arrival</th>
+            <th>aircraft</th>
+            <th>distance</th>
+            <th>Travel Time</th>
+          </tr>
+          <tr *ngFor="let flight of data" >
+        <td>{{flight.flightNumber}}</td>
+        <td>{{flight.carrierr}}</td>
+        <td>{{flight.origin}}</td>
+        <td>{{flight.depature}}</td>
+        <td>{{flight.destination}}</td>
+        <td>{{flight.arrival}}</td>
+        <td>{{flight.aircraft}}</td>
+        <td>{{flight.distance}}</td>
+        <td>{{flight.travelTime}}</td>
+        
+          </tr>
+    </div>
+</ng-container>
+
+<ul>
+
+</ul>
+
+<router-outlet></router-outlet>
